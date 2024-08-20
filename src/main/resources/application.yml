@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: try
+  cloud:
+    function:
+      definition: sink
+    stream:
+      bindings:
+        input:
+          content-type:
+            application/x-java-object;type=com.example.demo.AccountTxn
+        sink-in-0:
+          destination: marTopic
+          group: myconsumergroup
+          consumer:
+            concurrency: 5
+      binders:
+        local-solace:
+          type: solace
+          environment:
+            solace: 
+              java:
+                host: tcps://mr-connection-zoi6dop3jst.messaging.solace.cloud:55443
+                msgVpn: wallet
+                clientUsername: solace-cloud-client
+                clientPassword: muge6khrp8pq4tdm3srh25fgvv
+                connectRetries: -1
+                reconnectRetries: -1
+      solace:
+        bindings:
+          sink-in-0:
+            consumer:
+              queueNameExpression: '"martinkok"'
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - bindings
