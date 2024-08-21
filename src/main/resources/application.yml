@@ -31,6 +31,11 @@ spring:
           sink-in-0:
             consumer:
               queueNameExpression: '"martinkok"'
+  data:
+    mongodb:
+      uri: mongodb+srv://martin:K0kk@ming1@developerday.pmccl2q.mongodb.net/?retryWrites=true&w=majority&appName=DeveloperDay
+      database: wallet
+        
 management:
   endpoints:
     web:
