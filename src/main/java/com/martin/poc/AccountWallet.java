@@ -8,12 +8,13 @@ import org.springframework.context.annotation.ComponentScan;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.martin.poc.mongo.AccountTxnMongoDBRespository;
 
 import java.time.LocalDateTime;
 import java.util.function.Consumer;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.martin.poc", "com.martin.poc.*","kok.martin.poc.mongodb"})
+@ComponentScan(basePackages = {"com.martin.poc", "com.martin.poc.*"})
 public class AccountWallet {
 
 	@Autowired
@@ -40,12 +41,12 @@ public class AccountWallet {
 			//JSON to Object
 			try {
 				accountTxn = om.readValue(txtMsg, AccountTxn.class);
-				accountTxn.setWaterMarkDT(LocalDateTime.now());
+				//accountTxn.setWaterMarkDT(LocalDateTime.now());
 			} catch (JsonProcessingException e) {
 				
 				e.printStackTrace();
 			}
-			System.out.println("accountTxn=>"+accountTxn);
+			System.out.println("Saved accountTxn=>"+accountTxn);
 			//Save to Ledge
 			accountTxnMongoDBRespository.save(accountTxn);
 
