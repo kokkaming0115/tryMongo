@@ -33,7 +33,7 @@ spring:
               queueNameExpression: '"martinkok"'
   data:
     mongodb:
-      uri: mongodb+srv://martin:K0kk@ming1@developerday.pmccl2q.mongodb.net/?retryWrites=true&w=majority&appName=DeveloperDay
+      uri: mongodb+srv://walletsrv:walletsrv@developerday.pmccl2q.mongodb.net/?retryWrites=true&w=majority&appName=DeveloperDay
       database: wallet
         
 management:

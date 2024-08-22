@@ -4,22 +4,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import kok.martin.poc.mongodb.AccountTxnMongoDBRespository;
 
 import java.time.LocalDateTime;
 import java.util.function.Consumer;
 
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.martin.poc", "com.martin.poc.*","kok.martin.poc.mongodb"})
 public class AccountWallet {
 
 	@Autowired
 	private ObjectMapper om;
 	@Autowired
-	private AccountTxnMongoDBRespository mongoRepo;
+	private AccountTxnMongoDBRespository accountTxnMongoDBRespository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(AccountWallet.class, args);
@@ -47,7 +47,7 @@ public class AccountWallet {
 			}
 			System.out.println("accountTxn=>"+accountTxn);
 			//Save to Ledge
-			mongoRepo.save(accountTxn);
+			accountTxnMongoDBRespository.save(accountTxn);
 
 			//Update Cache
 			//throw new RuntimeException("test error!");
