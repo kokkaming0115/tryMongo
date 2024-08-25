@@ -11,15 +11,15 @@ public class AccountTxn{
     @Id
     private String id;
     private String accountNo;
-    private long accountBalance;
+    private long amount;
     private long waterMark;
     private LocalDateTime waterMarkDT;
     
     public AccountTxn(){}
 
-    public AccountTxn(String accountNo, long accountBalance, long waterMark, LocalDateTime waterMarkDT) {
+    public AccountTxn(String accountNo, long amount, long waterMark, LocalDateTime waterMarkDT) {
         this.accountNo = accountNo;
-        this.accountBalance = accountBalance;
+        this.amount = amount;
         this.waterMark = waterMark;
         this.waterMarkDT = waterMarkDT;
     }
@@ -39,11 +39,11 @@ public class AccountTxn{
     public void setAccountNo(String accountNo) {
         this.accountNo = accountNo;
     }
-    public long getAccountBalance() {
-        return accountBalance;
+    public long getAmount() {
+        return amount;
     }
-    public void setAccountBalance(long balance) {
-        this.accountBalance = balance;
+    public void setAmount(long balance) {
+        this.amount = balance;
     }
     public long getWaterMark() {
         return waterMark;
@@ -63,7 +63,7 @@ public class AccountTxn{
 
     @Override
     public String toString() {
-        return "AccountTxn [accountNo=" + accountNo + ", accountBalance=" + accountBalance + ", waterMark=" + waterMark
+        return "AccountTxn [accountNo=" + accountNo + ", amount=" + amount + ", waterMark=" + waterMark
                 + ", waterMarkDT=" + waterMarkDT + "]";
     }
 

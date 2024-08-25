@@ -4,6 +4,7 @@ spring:
   cloud:
     function:
       definition: sink
+   
     stream:
       bindings:
         input:
@@ -31,6 +32,7 @@ spring:
           sink-in-0:
             consumer:
               queueNameExpression: '"martinkok"'
+              
   data:
     mongodb:
       uri: mongodb+srv://walletsrv:walletsrv@developerday.pmccl2q.mongodb.net/?retryWrites=true&w=majority&appName=DeveloperDay

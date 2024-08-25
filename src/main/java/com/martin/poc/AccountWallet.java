@@ -12,6 +12,9 @@ import com.martin.poc.mongo.AccountTxnMongoDBRespository;
 
 import java.time.LocalDateTime;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.martin.poc", "com.martin.poc.*"})
@@ -54,5 +57,20 @@ public class AccountWallet {
 			//throw new RuntimeException("test error!");
 		};
     }
+/* 
+	@Bean
+	public Function<String, List<AccountTxn>> getAccountTxnAfterDT(){
+		
 
+		return accountTxnInput -> {
+			System.out.println(accountTxnInput);
+
+			List<AccountTxn> accountTxnList = new ArrayList<>();
+
+			System.out.println(accountTxnInput);
+
+			return accountTxnList;
+		}
+	}
+*/
 }
