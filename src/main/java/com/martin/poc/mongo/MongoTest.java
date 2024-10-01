@@ -14,9 +14,13 @@ public class MongoTest {
         MongoClient dbcon = createConnection();
         ExecutorService executor = Executors.newFixedThreadPool(20);
 
-        for(int i=0; i<5; i++){
+        for(int i=0; i<100; i++){
             Task task = new Task(dbcon, "10001", 10);
             executor.submit(task);
+            Task task1 = new Task(dbcon, "10002", 10);
+            executor.submit(task1);
+            Task task2 = new Task(dbcon, "10003", 10);
+            executor.submit(task2);
         }
 
         executor.shutdown();
